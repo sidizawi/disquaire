@@ -10,5 +10,12 @@ def index(request):
 
 def listing(request):
 	albums = ["<li>{}</li>".format(album['name']) for album in ALBUMS]
-	message = """<ul>{}</ul>""".format("\n".join(albums))
+	message = """Les albums : \n<ul>{}</ul>""".format("\n".join(albums))
+	return HttpResponse(message)
+
+def detail(request, album_id):
+	id = int(album_id)
+	album = ALBUMS[id]
+	artists = " ".join([artists['name'] for artist in album['artists']])
+	messatge = "Le nom de l'album est {}. IL a été écrit par {}".format(album['name', artists])
 	return HttpResponse(message)
