@@ -16,6 +16,6 @@ def listing(request):
 def detail(request, album_id):
 	id = int(album_id)
 	album = ALBUMS[id]
-	artists = " ".join([artists['name'] for artist in album['artists']])
+	artists = " ".join([artist['name'] for artist in album['artists']])
 	messatge = "Le nom de l'album est {}. IL a été écrit par {}".format(album['name'], artists)
 	return HttpResponse(message)
